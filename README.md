@@ -1,1 +1,1 @@
-This is essentially a blog page I am making.
+https://nihar4262.github.io/The-NiHar-Mail/ 
