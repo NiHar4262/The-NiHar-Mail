@@ -41,6 +41,44 @@
         color: rgb(204, 13, 112);
         text-align: center;
     }
+    .articles {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 600px;
+        margin: 40px auto;
+    }
+    .article-card {
+        display: flex;
+        align-items: center;
+        background: #222;
+        border-radius: 8px;
+        text-decoration: none;
+        color: inherit;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: background 0.2s;
+        padding: 12px;
+    }
+    .article-card:hover {
+        background: #333;
+    }
+    .thumb {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-right: 16px;
+    }
+    .article-card h2 {
+        margin: 0 0 8px 0;
+        color: #ffcc00;
+        font-size: 1.2em;
+    }
+    .article-card p {
+        margin: 0;
+        color: #aaa;
+        font-size: 0.95em;
+    }
 </style>
 
 <link href="https://fonts.googleapis.com/css?family=Bitcount+Prop+Single:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
@@ -57,5 +95,12 @@
 <map name="youtube-map">
   <area shape="rect" coords="0,0,270,148" href="https://www.youtube.com/" alt="YouTube">
 </map>
+<div class="articles">
+    <a href="article1.html" class="article-card">
+       <img src="images/test.jpg" alt="Article 1 Image" class="article-image" style="width: 25%; height: auto;">
+</div>
+    <h2>This is a test article</h2>
+    <p>This article is a test for articles click to see more</p>
+</div>
 </body>
 </html>
