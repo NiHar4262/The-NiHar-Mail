@@ -43,14 +43,15 @@
         text-align: center;
     }
     .articles {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        max-width: 600px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+        max-width: 800px;
         margin: 40px auto;
     }
     .article-card {
         display: flex;
+        flex-direction: column;
         align-items: center;
         background: #222;
         border-radius: 8px;
@@ -58,17 +59,27 @@
         color: inherit;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         transition: background 0.2s;
-        padding: 12px;
+        padding: 16px;
+        width: 100%;
+        min-height: 320px;
+        aspect-ratio: 1/1; 
+        box-sizing: border-box;
+    }
+    @supports not (aspect-ratio: 1/1) {
+      .article-card {
+        height: 320px;
+      }
     }
     .article-card:hover {
         background: #333;
     }
     .thumb {
-        width: 80px;
-        height: 80px;
+        width: 100%;
+        max-width: 160px;
+        height: 160px;
         object-fit: cover;
         border-radius: 6px;
-        margin-right: 16px;
+        margin-bottom: 12px;
     }
     .article-card h2 {
         margin: 0 0 8px 0;
@@ -88,21 +99,19 @@
     }
     @media (max-width: 700px) {
       .articles {
+        grid-template-columns: 1fr;
+        gap: 16px;
         max-width: 98vw;
         margin: 20px 1vw;
-        gap: 12px;
       }
       .article-card {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 8px;
+        min-height: 220px;
+        max-width: 98vw;
+        padding: 10px;
       }
       .thumb {
-        width: 100%;
-        height: auto;
-        margin: 0 0 8px 0;
-        max-width: 320px;
-        align-self: center;
+        max-width: 120px;
+        height: 120px;
       }
       .heading-row {
         gap: 8px;
@@ -141,14 +150,10 @@
       <p>25-7-25 | This article explores the captivating phenomenon of bioluminescence in nature.Click to see more.</p>
     </div>
   </a>
-</div>
-<div class="articles">
     <a href="pong.html" class="article-card">
         <img src="images/pong.jpg" alt="Article 2 Image" class="thumb">
-        <div>
-        <h2>PONG</h2>
-        <p>25-7-25 | Why not play some pong? article may not function on mobile</p>
-        </div>
+          <h2>PONG</h2>
+          <p>25-7-25 | Why not play some pong? Relive the classic arcade experience, now brought to you in a slightly worse form. This article may not function on mobile.</p>
     </a>
 </div>
 
@@ -156,6 +161,7 @@
 
 </body>
 </html>
+
 
 
 
