@@ -97,6 +97,13 @@
         margin-bottom: 0px;
         color: #aaa;
     }
+    .card-underline {
+        width: 80%;
+        height: 4px;
+        background: linear-gradient(90deg, #2ab1ff 0%, #cc0d70 100%);
+        border-radius: 2px;
+        margin: 10px 0 14px 0;
+    }
     @media (max-width: 700px) {
       .articles {
         grid-template-columns: 1fr;
@@ -145,16 +152,20 @@
 <div class="articles">
   <a href="article1.html" class="article-card">
     <img src="images/biolumin.jpg" alt="Article 1 Image" class="thumb">
+    <div class="card-underline"></div>
     <div>
       <h2>The Fascinating World of Bioluminescence</h2>
       <p>25-7-25 | This article explores the captivating phenomenon of bioluminescence in nature.Click to see more.</p>
     </div>
   </a>
-    <a href="pong.html" class="article-card">
-        <img src="images/pong.jpg" alt="Article 2 Image" class="thumb">
-          <h2>PONG</h2>
-          <p>25-7-25 | Why not play some pong? Relive the classic arcade experience, now brought to you in a slightly worse form. This article may not function on mobile.</p>
-    </a>
+  <a href="pong.html" class="article-card">
+    <img src="images/pong.jpg" alt="Article 2 Image" class="thumb">
+    <div class="card-underline"></div>
+    <div>
+      <h2>PONG</h2>
+      <p>25-7-25 | Why not play some pong? Relive the classic arcade experience, now brought to you in a slightly worse form. This article may not function on mobile.</p>
+    </div>
+  </a>
 </div>
 
 
