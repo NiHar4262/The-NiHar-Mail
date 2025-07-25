@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The NiHar Mail | PONG</title>
+</head>
+<body>
+  <div style="width:100%;background:#222;color:#fff;padding:18px 0 10px 0;text-align:center;font-family:sans-serif;letter-spacing:1px;">
+    <a href="index.html" style="color:inherit;text-decoration:none;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:18px;">
+        <img src="images/pong.gif" alt="SPINNING N" class="side-gif">
+        <h1 style="margin:0;font-size:2.2em;cursor:pointer;">BACK TO HOME</h1>
+        <img src="images/pong.gif" alt="SPINNING N" class="side-gif">
+      </div>
+    </a>
+    <div style="font-size:1.1em;margin-top:2px;">by NiHar Christison</div>
+  </div>
+<link href="https://fonts.googleapis.com/css?family=Bitcount+Prop+Single:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
+
+<style>
+    body {
+        background-color: #2a2a2a;
+        font-family: 'Bitcount Prop Single',monospace;
+    }
+    h1 {
+        font-size: 2.5em;
+        font-family: 'Bitcount Prop Single', monospace;
+        margin: 0;
+        color:rgb(204, 13, 112, 1);
+    }
+    div {
+        font-size: 0.9em;
+        font-family: 'Bitcount Prop Single', monospace;
+        color: #aaa;
+        margin-top: 2px;
+        margin-bottom: 0;
+        text-align: center;
+        letter-spacing: 1px;
+    }
+    body, html {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    canvas {
+        display: block;
+    }
+    .side-gif {
+        width: 48px;
+        height: 48px;
+    }
+</style>
+  <canvas id="pong"></canvas>
+  <script>
+const canvas = document.getElementById('pong');
+const ctx = canvas.getContext('2d');
+
+let paddleWidth = 10, paddleHeight = 80;
+let leftY = 160, rightY = 160;
+let ballX = 300, ballY = 200, ballSize = 10;
+let paddleSpeed, ballSpeedX, ballSpeedY;
+let aiError = 0;
+let leftUp = false, leftDown = false;
+
+function setSpeeds() {
+    paddleSpeed = canvas.height * 0.012;
+    ballSpeedX = canvas.width * 0.005 * (Math.random() > 0.5 ? 1 : -1);
+    ballSpeedY = canvas.height * 0.005 * (Math.random() > 0.5 ? 1 : -1);
+}
+
+function resizeCanvas() {
+    const header = document.querySelector('div'); // your header div is the first div
+    const headerHeight = header ? header.offsetHeight : 0;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight - headerHeight;
+    canvas.style.top = headerHeight + "px";
+    setSpeeds();
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'w') leftUp = true;
+    if (e.key === 's') leftDown = true;
+});
+document.addEventListener('keyup', function(e) {
+    if (e.key === 'w') leftUp = false;
+    if (e.key === 's') leftDown = false;
+});
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#2ab1ff";
+    ctx.fillRect(10, leftY, paddleWidth, paddleHeight);
+    ctx.fillRect(canvas.width - 20, rightY, paddleWidth, paddleHeight);
+    ctx.fillStyle = "rgb(204, 13, 112, 1)";
+    ctx.beginPath();
+    ctx.arc(ballX, ballY, ballSize, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+function update() {
+    aiError += (Math.random() - 0.5) * 2;
+    aiError = Math.max(Math.min(aiError, 8), -8);
+    let aiCenter = rightY + paddleHeight / 2;
+    let target = ballY + aiError;
+    let lerpFactor = 0.15; 
+    rightY += (target - aiCenter) * lerpFactor;
+
+    if (rightY < 0) rightY = 0;
+    if (rightY > canvas.height - paddleHeight) rightY = canvas.height - paddleHeight;
+
+    ballX += ballSpeedX;
+    ballY += ballSpeedY;
+
+    if (ballY < ballSize || ballY > canvas.height - ballSize) {
+        ballSpeedY *= -1;
+    }
+    if (
+        ballX - ballSize < 20 &&
+        ballY > leftY && ballY < leftY + paddleHeight
+    ) {
+        ballSpeedX *= -1;
+        ballX = 20 + ballSize;
+    } else if (
+        ballX + ballSize > canvas.width - 20 &&
+        ballY > rightY && ballY < rightY + paddleHeight
+    ) {
+        ballSpeedX *= -1;
+        ballX = canvas.width - 20 - ballSize;
+    } else if (ballX < 0 || ballX > canvas.width) {
+        ballX = canvas.width / 2;
+        ballY = canvas.height / 2;
+        setSpeeds();
+    }
+
+    if (leftUp && leftY > 0) leftY -= paddleSpeed;
+    if (leftDown && leftY < canvas.height - paddleHeight) leftY += paddleSpeed;
+}
+
+function loop() {
+    update();
+    draw();
+    requestAnimationFrame(loop);
+}
+loop();
+</script>
+
+</body>
+</html>
