@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>The NiHar Mail | Test Article</title>
+<title>The NiHar Mail</title>
 <link rel="icon" type="image/x-icon" href="images/favicon/icon.ico">
 </head>
 <body>
+    
 <style>
+   
     body {
         background-color: #2a2a2a;
-        color: #2ab1ff;
+        color: #ffffff;
+        text-align: center;
         font-family: 'Bitcount Prop Single', monospace;
     }
     h1 {
-        color: rgb(204, 13, 112);
+        color:rgb(204, 13, 112);
         text-align: center;
     }
     .author {
@@ -23,10 +26,97 @@
         text-align: center;
         letter-spacing: 1px;
     }
+    .heading-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px; 
+        margin-bottom: -10px;
+    }
+    .side-gif {
+        width: 48px;  
+        height: 48px; 
+    }
+    .heading-row h1 {
+        margin: 0;
+        color: rgb(204, 13, 112);
+        text-align: center;
+    }
+    .articles {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 600px;
+        margin: 40px auto;
+    }
+    .article-card {
+        display: flex;
+        align-items: center;
+        background: #222;
+        border-radius: 8px;
+        text-decoration: none;
+        color: inherit;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: background 0.2s;
+        padding: 12px;
+    }
+    .article-card:hover {
+        background: #333;
+    }
+    .thumb {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-right: 16px;
+    }
+    .article-card h2 {
+        margin: 0 0 8px 0;
+        color: #36fcff;
+        font-size: 1.2em;
+    }
+    .article-card p {
+        margin: 0;
+        color: #aaa;
+        font-size: 0.95em;
+    }
+    .about {
+        text-align: right;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        color: #aaa;
+    }
 </style>
-<h1>The NiHar Mail</h1>
+
+<link href="https://fonts.googleapis.com/css?family=Bitcount+Prop+Single:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
+
+<div class="heading-row">
+    <img src="images/n.gif" alt="SPINNING N" class="side-gif">
+<a href="index.html" class="header-link">
+    <h1>The NiHar Mail</h1>
+</a>
+<img src="images/n.gif" alt="SPINNING N" class="side-gif">
+</div>
 <div class="author">By NiHar Christison</div>
-/* reminder to create a button to go back to the main page */
+
+<article>
+  <h2>The Fascinating World of Bioluminescence</h2>
+  <p>
+    Have you ever wondered why some creatures glow in the dark? Bioluminescence is the production and emission of light by living organisms. This natural phenomenon is found in various species, including fireflies, certain fungi, and many marine animals like jellyfish and deep-sea fish.
+  </p>
+    <img src="images/biolumin.jpg" alt="Bioluminescence" width="50%" style="border-radius: 8px; margin-top: 10px;">
+  <p>
+    The light is produced through a chemical reaction that occurs in specialized cells or organelles. In the ocean, bioluminescence is used for camouflage, attracting mates, luring prey, or deterring predators. On land, fireflies use their glow to communicate and find partners during warm summer nights.
+  </p>
+  <p>
+    Scientists are studying bioluminescent organisms to develop new technologies, such as medical imaging tools and sustainable lighting. The next time you see a glowing creature, remember you’re witnessing one of nature’s most magical displays!
+  </p>
+  <br>
+  <p> article written by NiHar Christison with the assistance of GPT 4.1</p>
+</article>
+
+</body>
+</html>
 
 
 
