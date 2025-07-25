@@ -5,7 +5,7 @@
 <link rel="icon" type="image/x-icon" href="images/favicon/icon.ico">
 </head>
 <body>
-    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
    
     body {
@@ -85,6 +85,30 @@
         margin-top: 0px;
         margin-bottom: 0px;
         color: #aaa;
+    }
+    @media (max-width: 700px) {
+      .heading-row {
+        gap: 8px;
+      }
+      h1, .heading-row h1 {
+        font-size: 1.3em;
+      }
+      .side-gif {
+        width: 32px;
+        height: 32px;
+      }
+      .author {
+        font-size: 0.95em;
+      }
+      article img {
+        width: 98vw !important;
+        max-width: 340px;
+        height: auto;
+      }
+      article {
+        padding: 0 2vw;
+        font-size: 1.05em;
+      }
     }
 </style>
 
