@@ -63,18 +63,25 @@ let leftUp = false, leftDown = false;
 let touchStartY = null;
 
 function setSpeeds() {
+    paddleHeight = Math.max(canvas.height * 0.18, 40); // 18% of height, min 40px
+    paddleWidth = Math.max(canvas.width * 0.012, 8);   // 1.2% of width, min 8px
+    ballSize = Math.max(Math.min(canvas.width, canvas.height) * 0.018, 8); // 1.8% of smaller dimension, min 8px
     paddleSpeed = canvas.height * 0.012;
     ballSpeedX = canvas.width * 0.005 * (Math.random() > 0.5 ? 1 : -1);
     ballSpeedY = canvas.height * 0.005 * (Math.random() > 0.5 ? 1 : -1);
 }
 
 function resizeCanvas() {
-    const header = document.querySelector('div'); 
+    const header = document.querySelector('div');
     const headerHeight = header ? header.offsetHeight : 0;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight - headerHeight;
     canvas.style.top = headerHeight + "px";
     setSpeeds();
+    leftY = (canvas.height - paddleHeight) / 2;
+    rightY = (canvas.height - paddleHeight) / 2;
+    ballX = canvas.width / 2;
+    ballY = canvas.height / 2;
 }
 resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
