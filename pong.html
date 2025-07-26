@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>The NiHar Mail | PONG</title>
-  <link rel="icon" type="image/x-icon" href="images/favicon/icon.ico">
 </head>
 <body>
   <div style="width:100%;background:#222;color:#fff;padding:18px 0 10px 0;text-align:center;font-family:sans-serif;letter-spacing:1px;">
@@ -13,7 +12,7 @@
         <img src="images/pong.gif" alt="SPINNING N" class="side-gif">
       </div>
     </a>
-    <div style="font-size:1.1em;margin-top:2px;">"W" for up, "S" for down</div>
+    <div style="font-size:1.1em;margin-top:2px;">by NiHar Christison</div>
   </div>
 <link href="https://fonts.googleapis.com/css?family=Bitcount+Prop+Single:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
 
@@ -61,6 +60,7 @@ let ballX = 300, ballY = 200, ballSize = 10;
 let paddleSpeed, ballSpeedX, ballSpeedY;
 let aiError = 0;
 let leftUp = false, leftDown = false;
+let touchStartY = null;
 
 function setSpeeds() {
     paddleSpeed = canvas.height * 0.012;
@@ -69,7 +69,7 @@ function setSpeeds() {
 }
 
 function resizeCanvas() {
-    const header = document.querySelector('div'); // your header div is the first div
+    const header = document.querySelector('div'); 
     const headerHeight = header ? header.offsetHeight : 0;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight - headerHeight;
@@ -86,6 +86,28 @@ document.addEventListener('keydown', function(e) {
 document.addEventListener('keyup', function(e) {
     if (e.key === 'w') leftUp = false;
     if (e.key === 's') leftDown = false;
+});
+
+canvas.addEventListener('touchstart', function(e) {
+    if (e.touches.length === 1) {
+        touchStartY = e.touches[0].clientY;
+    }
+});
+
+canvas.addEventListener('touchmove', function(e) {
+    if (touchStartY !== null && e.touches.length === 1) {
+        let touchY = e.touches[0].clientY;
+        let deltaY = touchY - touchStartY;
+        leftY += deltaY * 0.7;
+        if (leftY < 0) leftY = 0;
+        if (leftY > canvas.height - paddleHeight) leftY = canvas.height - paddleHeight;
+        touchStartY = touchY;
+        e.preventDefault();
+    }
+});
+
+canvas.addEventListener('touchend', function(e) {
+    touchStartY = null;
 });
 
 function draw() {
