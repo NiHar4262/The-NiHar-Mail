@@ -92,10 +92,15 @@
         color: #aaa;
         font-size: 0.95em;
     }
-    .about a {
+    .about {
       position: absolute;
       top: 0;
       right: 18px;
+      text-align: right;
+      margin-top: 0;
+      color: #0b8497;
+    }
+    .about a {
       text-decoration: none;
       font-weight: bold;    
       cursor: pointer;
@@ -142,16 +147,17 @@
 
 <link href="https://fonts.googleapis.com/css?family=Bitcount+Prop+Single:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
 
-<div class="heading-row">
+<div style="position:relative;">
+  <div class="heading-row">
     <img src="images/n.gif" alt="SPINNING N" class="side-gif">
-<h1>The NiHar Mail</h1>
-<img src="images/n.gif" alt="SPINNING N" class="side-gif">
-<div class="about">
-  <a href="about.html">About</a>
-</div>
+    <h1>The NiHar Mail</h1>
+    <img src="images/n.gif" alt="SPINNING N" class="side-gif">
+  </div>
+  <div class="about">
+    <a href="about.html">About</a>
+  </div>
 </div>
 <div class="author">By NiHar Christison</div>
-</div>
 
 
 <div class="articles">
@@ -188,4 +194,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
