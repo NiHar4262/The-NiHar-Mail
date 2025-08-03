@@ -20,7 +20,7 @@
     }
     .author {
         font-size: 0.9em;
-        color: #aaa;
+        color: #949494;
         margin-top: -10px;
         margin-bottom: 20px;
         text-align: center;
@@ -32,6 +32,7 @@
         justify-content: center;
         gap: 20px; 
         margin-bottom: -10px;
+        position: relative;
     }
     .side-gif {
         width: 48px;  
@@ -39,7 +40,7 @@
     }
     .heading-row h1 {
         margin: 0;
-        color: rgb(204, 13, 112);
+        color: #50cf9d;/*rgb(204, 13, 112)*/
         text-align: center;
     }
     .articles {
@@ -91,11 +92,14 @@
         color: #aaa;
         font-size: 0.95em;
     }
-    .about {
-        text-align: right;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        color: #aaa;
+    .about a {
+      position: absolute;
+      top: 0;
+      right: 18px;
+      text-decoration: none;
+      font-weight: bold;    
+      cursor: pointer;
+      color: inherit;
     }
     .card-underline {
         width: 80%;
@@ -142,11 +146,12 @@
     <img src="images/n.gif" alt="SPINNING N" class="side-gif">
 <h1>The NiHar Mail</h1>
 <img src="images/n.gif" alt="SPINNING N" class="side-gif">
+<div class="about">
+  <a href="about.html">About</a>
+</div>
 </div>
 <div class="author">By NiHar Christison</div>
 </div>
-
-
 
 
 <div class="articles">
@@ -163,27 +168,23 @@
     <div class="card-underline"></div>
     <div>
       <h2>PONG</h2>
-      <p>25-7-25 | Why not play some pong? Relive the classic arcade experience, now brought to you in a slightly worse form. </p>
+      <p>25-7-25 | Why not play some pong? Relive the classic arcade experience, now brought to you in a slightly worse form.</p>
     </div>
   </a>
-    <div>
-        <a href="article2.html" class="article-card">
-    <img src="images/n.gif" alt="Article 1 Image" class="thumb">
-    <div class="card-underline"></div>
-    <div>
-      <h2>The N</h2>
-      <p>25-7-25 | This article is a spinning N (currently broken) .Click to see more.</p>
-    </div>
-    </a>
-    </div>
+</div>
 
-
-
-</body>
-</html>
-
-
-
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const h1 = document.querySelector('.heading-row h1');
+  let hue = 0;
+  setInterval(() => {
+    hue = (hue + 2) % 360;
+    if (h1) {
+      h1.style.color = `hsl(${hue}, 90%, 60%)`;
+    }
+  }, 30);
+});
+</script>
 
 </body>
 </html>
