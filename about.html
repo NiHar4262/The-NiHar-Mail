@@ -10,7 +10,7 @@
    
     body {
         background-color: #2a2a2a;
-        color: #2ab1ff;
+        color: #ffffff;
         font-family: 'Bitcount Prop Single', monospace;
     }
     h1 {
@@ -85,6 +85,19 @@
         margin-bottom: 0px;
         color: #aaa;
     }
+    .aboutme {
+        text-underline-offset: 4px;
+    }
+          article img {
+        width: 98vw !important;
+        max-width: 340px;
+        height: auto;
+        border: 10px solid #61c944;
+      }
+      article {
+        padding: 0 2vw;
+        font-size: 1.05em;
+      }
 </style>
 
 <link href="https://fonts.googleapis.com/css?family=Bitcount+Prop+Single:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
@@ -98,7 +111,13 @@
 </div>
 <div class="author">By NiHar Christison</div>
 </div>
- 
+<article>
+<h2> About me and about this site</h2>
+<p>This is a website that is currently being worked on as part of the Summer of Making, and it is the first ever website I have ever developed.</p>
+<p> I am Nihar Christison (16), and know little bits of c#, python and html, but overall am pretty below average at coding. Typically my interest lies in the hardware side, however the Summer of Making has given me an excuse to try to do more programming, and this is one of the results </p>
+<img src="images/salivaman.png" alt="Saliva Man" class="article img" caption="The GREAT Saliva Man">
+</article>
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const h1 = document.querySelector('.heading-row h1');
