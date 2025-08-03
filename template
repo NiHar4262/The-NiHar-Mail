@@ -91,8 +91,28 @@
 
 <div class="heading-row">
     <img src="images/n.gif" alt="SPINNING N" class="side-gif">
-<h1>The NiHar Mail</h1>
+<a href="index.html" class="header-link">
+    <h1>The NiHar Mail</h1>
+</a>
 <img src="images/n.gif" alt="SPINNING N" class="side-gif">
 </div>
 <div class="author">By NiHar Christison</div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const h1 = document.querySelector('.heading-row h1');
+  let hue = 0;
+  setInterval(() => {
+    hue = (hue + 2) % 360;
+    if (h1) {
+      h1.style.color = `hsl(${hue}, 90%, 60%)`;
+    }
+  }, 30);
+});
+</script>
+
+</body>
+
+</html>
+
