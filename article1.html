@@ -123,6 +123,7 @@
 </div>
 <div class="author">By NiHar Christison</div>
 
+
 <article>
   <h2>The Fascinating World of Bioluminescence</h2>
   <p>
@@ -139,8 +140,22 @@
   <p> article written by NiHar Christison with the assistance of GPT 4.1</p>
 </article>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const h1 = document.querySelector('.heading-row h1');
+  let hue = 0;
+  setInterval(() => {
+    hue = (hue + 2) % 360;
+    if (h1) {
+      h1.style.color = `hsl(${hue}, 90%, 60%)`;
+    }
+  }, 30);
+});
+</script>
+
 </body>
 </html>
+
 
 
 
